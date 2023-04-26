@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import PrivateRoute from '../components/PrivateRoute';
 import Navbar from '../components/Navbar';
 import Home from '../screens/Home';
 import Login from '../screens/Login';
@@ -21,14 +22,14 @@ const AppRouter = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/user-profile" element={<UserProfile />} />
-                <Route path="/friends-list" element={<FriendsList />} />
-                <Route path="/friend-search" element={<FriendSearch />} />
-                <Route path="/therapeutic-chatbots" element={<TherapeuticChatbots />} />
-                <Route path="/mindfulness-exercises" element={<MindfulnessExercises />} />
-                <Route path="/emotional-journal" element={<EmotionalJournal />} />
-                <Route path="/recommendations" element={<Recommendations />} />
-                <Route path="/progress-tracking" element={<ProgressTracking />} />
+                <Route path="/user-profile" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
+                <Route path="/friends-list" element={<PrivateRoute><FriendsList /></PrivateRoute>} />
+                <Route path="/friend-search" element={<PrivateRoute><FriendSearch /></PrivateRoute>} />
+                <Route path="/therapeutic-chatbots" element={<PrivateRoute><TherapeuticChatbots /></PrivateRoute>} />
+                <Route path="/mindfulness-exercises" element={<PrivateRoute><MindfulnessExercises /></PrivateRoute>} />
+                <Route path="/emotional-journal" element={<PrivateRoute><EmotionalJournal /></PrivateRoute>} />
+                <Route path="/recommendations" element={<PrivateRoute><Recommendations /></PrivateRoute>} />
+                <Route path="/progress-tracking" element={<PrivateRoute><ProgressTracking /></PrivateRoute>} />
             </Routes>
         </Router>
     );

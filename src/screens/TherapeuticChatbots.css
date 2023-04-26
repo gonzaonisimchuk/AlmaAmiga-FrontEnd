@@ -1,0 +1,32 @@
+.therapeutic-chatbots-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.therapeutic-chatbots-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.therapeutic-chatbots-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.chatbot-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.chatbot-description {
+    font-size: 14px;
+    color: #777;
+}

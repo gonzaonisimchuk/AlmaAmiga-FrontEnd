@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import storage from '../utils/storage';
 import './Login.css';
 
 const Login = () => {
@@ -10,6 +11,8 @@ const Login = () => {
         event.preventDefault();
         // Aquí puedes agregar la lógica para autenticar al usuario
         console.log('Email:', email, 'Password:', password);
+
+        storage.setItem('authToken', 'token');
     };
 
     return (

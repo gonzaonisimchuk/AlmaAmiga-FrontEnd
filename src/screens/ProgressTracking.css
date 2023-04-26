@@ -1,0 +1,28 @@
+.progress-tracking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.progress-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.progress-item {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-date,
+.progress-description {
+    margin: 0;
+}

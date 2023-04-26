@@ -53,6 +53,14 @@ const storage = {
             console.error("Error al limpiar el almacenamiento:", error);
         }
     },
+
+    /**
+     * Verifica si existe un tocken en localstorage.
+     */
+    isAuthenticated: () => {
+        const token = localStorage.getItem("authToken");
+        return token !== null;
+    }
 };
 
 export default storage;
