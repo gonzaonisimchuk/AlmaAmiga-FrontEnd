@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import storage from '../utils/storage';
+
 import './Home.css';
 
 const Home = () => {
@@ -14,14 +16,16 @@ const Home = () => {
                     terapéuticos, ejercicios de mindfulness, seguimiento del progreso y
                     más.
                 </p>
-                <div className="home-buttons">
-                    <Link to="/login" className="button button-primary">
-                        Iniciar sesión
-                    </Link>
-                    <Link to="/register" className="button button-secondary">
-                        Registrarse
-                    </Link>
-                </div>
+                {!storage.isAuthenticated() && (
+                    <div className="home-buttons">
+                        <Link to="/login" className="button button-primary">
+                            Iniciar sesión
+                        </Link>
+                        <Link to="/register" className="button button-secondary">
+                            Registrarse
+                        </Link>
+                    </div>
+                )}
             </div>
         </div>
     );

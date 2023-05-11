@@ -1,0 +1,16 @@
+.logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    /* 100px is the height of the navbar */
+    background-color: #f5f5f5;
+}
+
+.logout-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

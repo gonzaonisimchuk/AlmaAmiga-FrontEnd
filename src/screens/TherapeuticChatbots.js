@@ -1,36 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TherapeuticChatbots.css";
 
-const chatbots = [
-    {
-        name: "Chatbot 1",
-        description:
-            "Este chatbot te ayudará a lidiar con situaciones de estrés y ansiedad.",
-    },
-    {
-        name: "Chatbot 2",
-        description:
-            "Este chatbot te proporcionará técnicas de afrontamiento para momentos difíciles.",
-    },
-    {
-        name: "Chatbot 3",
-        description:
-            "Este chatbot te guiará a través de ejercicios de relajación y meditación.",
-    },
-];
-
 const TherapeuticChatbots = () => {
+    const [messages, setMessages] = useState([]);
+    const [newMessage, setNewMessage] = useState("");
+
+    const handleNewMessageChange = (event) => {
+        setNewMessage(event.target.value);
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            handleSendMessage();
+            event.preventDefault(); // Previene el comportamiento predeterminado del formulario
+        }
+    };
+
+    const handleSendMessage = () => {
+        setMessages([...messages, { sender: "user", text: newMessage }]);
+
+        // Aquí puedes agregar la lógica para generar una respuesta del bot
+        // Por ahora, el bot simplemente repite el mensaje del usuario
+        setTimeout(() => {
+            setMessages(prevMessages => [...prevMessages, { sender: "bot", text: newMessage }]);
+            setNewMessage("");
+        }, 500);
+    };
+
     return (
         <div className="therapeutic-chatbots-container">
-            <h2>Chatbots terapéuticos</h2>
-            <ul className="therapeutic-chatbots-list">
-                {chatbots.map((chatbot, index) => (
-                    <li key={index} className="therapeutic-chatbots-item">
-                        <div className="chatbot-name">{chatbot.name}</div>
-                        <div className="chatbot-description">{chatbot.description}</div>
-                    </li>
-                ))}
-            </ul>
+            <h2>Chatbot</h2>
+            <div className="chatbox">
+                <ul className="chat-messages">
+                    {messages.map((message, index) => (
+                        <li key={index} className={`chat-message ${message.sender}`}>
+                            <span className={`message-text ${message.sender}`}>{message.text}</span>
+                        </li>
+                    ))}
+                </ul>
+                <div className="chat-input-area">
+                    <input
+                        value={newMessage}
+                        onChange={handleNewMessageChange}
+                        placeholder="Escribe un mensaje"
+                        className="chat-input"
+                        onKeyPress={handleKeyPress}
+                    />
+                    <button onClick={handleSendMessage} className="send-button">
+                        Enviar
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };

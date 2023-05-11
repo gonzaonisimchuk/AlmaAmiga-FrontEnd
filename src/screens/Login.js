@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import storage from '../utils/storage';
 import './Login.css';
 
@@ -7,12 +7,18 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         // Aquí puedes agregar la lógica para autenticar al usuario
         console.log('Email:', email, 'Password:', password);
 
         storage.setItem('authToken', 'token');
+
+        navigate('/');
+
+        window.location.reload(); 
     };
 
     return (

@@ -18,4 +18,11 @@
     margin-bottom: 10px;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* esta línea permite que los cambios se hagan de forma gradual */
+}
+
+.recommendation-item:hover {
+    background-color: #e0e0e0; /* cambia el color de fondo al pasar el mouse */
+    transform: translateY(-10px); /* mueve el elemento 10px hacia arriba */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* hace que la sombra sea más prominente */
 }
