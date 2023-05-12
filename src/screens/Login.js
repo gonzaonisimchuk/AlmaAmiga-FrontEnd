@@ -21,6 +21,14 @@ const Login = () => {
         window.location.reload(); 
     };
 
+    const handleTwitterLogin = () => {
+        window.location.href = 'http://localhost:8000/auth/twitter';
+    };
+
+    const handleFacebookLogin = () => {
+        window.location.href = 'http://localhost:8000/auth/facebook';
+    };
+
     return (
         <div className="login">
             <div className="login-container">
@@ -52,6 +60,12 @@ const Login = () => {
                         Iniciar sesión
                     </button>
                 </form>
+                <button onClick={handleTwitterLogin} className="button button-primary login-button">
+                    Iniciar sesión con Twitter
+                </button>
+                <button onClick={handleFacebookLogin} className="button button-primary login-button">
+                    Iniciar sesión con Facebook
+                </button>
                 <p className="login-register">
                     ¿No tienes una cuenta?{' '}
                     <Link to="/register" className="login-register-link">
