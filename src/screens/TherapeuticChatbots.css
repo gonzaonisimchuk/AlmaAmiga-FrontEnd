@@ -32,22 +32,28 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 20px;
+    display: inline-block;
+}
+
+.loading {
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+    color: gray;
 }
 
 .chat-message.user {
-    text-align: right;
+    text-align: left;
     background-color: #e6fcff;
-    margin-left: 20%;
-    padding: 10px;
-    border-radius: 10px;
+    float: right;
+    clear: both;
 }
 
 .chat-message.bot {
     text-align: left;
     background-color: lightblue;
-    margin-right: 20%;
-    padding: 10px;
-    border-radius: 10px;
+    float: left;
+    clear: both;
 }
 
 .message-text {
